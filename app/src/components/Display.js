@@ -29,8 +29,9 @@ const Display = ({ searchUsers }) => {
             
         //students.unshift(newPost); //hooks version of componentWillReceiveProps
         // eslint-disable-next-line
-    },[userContext.user,userContext.not_found]); //edit  for special run conditions...empty means run once
+    },[userContext.users]); //edit  for special run conditions...empty means run once
     
+    //[userContext.user, userContext.not_found]
     /*
     const componentWillReceiveProps = (nextProps) => {
         if(nextProps.newPost) {

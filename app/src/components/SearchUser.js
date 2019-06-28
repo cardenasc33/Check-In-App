@@ -4,6 +4,7 @@ import { fetchUser } from '../actions/userActions';
 //import { createUser } from '../actions/userActions';
 import { exists } from 'fs';
 import UserContext from '../context/users/userContext';
+import Modal from 'react-modal';
 
 const SearchUser = ({ showClear, clearUsers, setAlert }) => {
     const userContext = useContext(UserContext); 
@@ -11,6 +12,9 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
     const { getUser, user, not_found, users } = userContext;
     
     const [info, setInfo] = useState({});
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
    
     
     const isEmpty = myObject => {
@@ -98,7 +102,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
     const searchUser = (uin) =>{
 
         userContext.getUser(uin); //getUser defined by userContext
-        
+        setModalIsOpen(true);
     }
 
     const enterPressed = (e) => {
@@ -163,6 +167,8 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
         var uin = text.substring(54, 63); //Obtains the string of the UIN
         document.getElementById("uinID").innerHTML="UIN: " + uin;
         userContext.getUser(uin);
+
+        setSecondModalIsOpen(true);
     }
 
     //replace render
@@ -223,12 +229,34 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             );
             
        
+            const modalItem = (
+                <div>
+                    {/*<button onClick={() => setModalIsOpen(true)}>Open Modal</button>
+                    <button onClick={() => setSecondModalIsOpen(true)}>Open Second Modal</button>*/}
+
+                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                    <button onClick={() => setModalIsOpen(false)}>close</button>
+                    <div>Manual Check-In Successful</div>
+                    </Modal>
+
+                    <Modal
+                    isOpen={secondModalIsOpen}
+                    onRequestClose={() => setSecondModalIsOpen(false)}
+                    >
+                    <button onClick={() => setSecondModalIsOpen(false)}>close</button>
+                    <div>Swipe Check-In Successful</div>
+                    </Modal>
+                </div>
+            );
 
         return (
+
             <div>
                 {swipeSearch}
                 {manualSearch}
+                {modalItem}
                 {userItem}
+
 
             </div>
         )

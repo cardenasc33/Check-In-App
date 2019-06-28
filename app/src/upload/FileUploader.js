@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState, useContext, useEffect} from 'react';
 // import { connect } from 'react-redux'
 import ReactFileReader from 'react-file-reader';
 import { ENETUNREACH } from 'constants';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'; //connects components to redux store
+
+import Modal from 'react-modal';
+import UserContext from '../context/users/userContext';
 
 
 
@@ -27,7 +30,12 @@ function insertJSON(data){
   })
 }
 
-class FileUploader extends Component {
+const FileUploader = () => {
+
+  const userContext = useContext(UserContext); 
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
   
   /*
   componentWillMount() {
@@ -42,12 +50,8 @@ class FileUploader extends Component {
   */
   
 
-  state = {
-    fileUpload_status: 'false',
-    isAvailable: false,
-  }
   
-  handleFiles = files => {
+  const handleFiles = files => {
     var reader = new FileReader();
     const t_his = this;
     reader.onload = function (e) { //executes when file has been loaded
@@ -149,40 +153,52 @@ class FileUploader extends Component {
         isAvailable: true
       })
       */
-      t_his.setState({
-        data: JSON.stringify(resultsArray, null, 4),
-        isAvailable: true
-      })
+  
     }
     reader.readAsText(files[0]);
     // format json as standard json object
   
   
-  
+    setModalIsOpen(true); //pop-up
+    userContext.searchUsers();
+    //userContext.getUser(null); //forces re-render of dispay component after upload
   } //end of handleFiles
 
-  renderActions() {
-    if (this.state.fileUpload_status == 'true'){
-      return "File successfully uploaded";
-    }
-  }
-  render() {
+ 
+
+  const modalItem = (
+    <div>
+                    {/*<button onClick={() => setModalIsOpen(true)}>Open Modal</button>
+                    <button onClick={() => setSecondModalIsOpen(true)}>Open Second Modal</button>*/}
+
+                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                    <button onClick={() => setModalIsOpen(false)}>close</button>
+                    <div>Upload Successful</div>
+                    </Modal>
+
+                    <Modal
+                    isOpen={secondModalIsOpen}
+                    onRequestClose={() => setSecondModalIsOpen(false)}
+                    >
+                    <button onClick={() => setSecondModalIsOpen(false)}>close</button>
+                    <div>Swipe Check-In Successful</div>
+                    </Modal>
+                </div>
+  );
+
     return (
+      
+
       <div>
-        <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
+        <ReactFileReader handleFiles={handleFiles} fileTypes={'.csv'}>
           <button className='btn'>Upload</button>
         </ReactFileReader>
+        {modalItem}
 
-        <div className="Actions">{this.renderActions()}</div>
         
-        {/*{this.state.isAvailable &&
-
-          <pre>{this.state.data}</pre>
-
-        }*/}
       </div>
     );
-  }
+  
 }
 
 FileUploader.propTypes = {
