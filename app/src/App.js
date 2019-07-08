@@ -10,6 +10,8 @@ import SearchUser from './components/SearchUser';
 import UserState from './context/users/UserState';
 import Modal from 'react-modal';
 
+import styles from './components/DisplayModule.css'; //Style sheet
+
 const App = () => {
 
 
@@ -21,6 +23,7 @@ const App = () => {
   
         <div className="App">
           <div className="Card">
+          <div className="grid-container">
          
          <Fragment>
           <FileUploader/>
@@ -31,7 +34,7 @@ const App = () => {
           </Fragment>
 
           
-        
+          </div>
           </div>
         </div>   
         </UserState>

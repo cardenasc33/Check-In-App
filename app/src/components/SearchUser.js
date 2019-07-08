@@ -15,6 +15,10 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
+    
+    
+    const [manualID, setManualID] = useState(""); //contains uin of manually searched student
+    const [swipedID, setSwipedID] = useState(""); //contains uin of swiped id card
    
     
     const isEmpty = myObject => {
@@ -116,7 +120,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
         var typedUIN = document.getElementById('uinInput').value;
         if (typedUIN.length === 9){     
             searchUser(typedUIN);
-
+            setManualID(typedUIN);
         }  
     }
 
@@ -151,6 +155,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             if (len === maxLength && prefix === "%B"){
                 document.getElementById("status").innerHTML="Status: " + "Success"; //Card was read properly
                 getUIN(text); //Calls the function getUIN() to obtain the UIN substring
+
             }
             else{
                 document.getElementById("status").innerHTML="Status: " + "Error, please swipe again"; //Card did NOT read properly
@@ -168,6 +173,8 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
         document.getElementById("uinID").innerHTML="UIN: " + uin;
         userContext.getUser(uin);
 
+        setSwipedID(uin); //add the uin to the state hook from swiped ID
+
         setSecondModalIsOpen(true);
     }
 
@@ -175,6 +182,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
             //const data = userContext.user;
             const data= userContext.user;
+            console.log(data.uin);
            
 
            
@@ -184,7 +192,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
 
             const swipeSearch = (
-                <div class = "searchUser">
+                <div class = "grid-menu">
                     <h1>Swipe Check In: </h1>
                     <input id = "text" type="text" onInput={getText}></input>
                     <p id = "total"> Total Characters: 0</p>
@@ -195,7 +203,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             )
 
             const manualSearch = (
-                <div class="searchUser">
+                <div class="grid-menu">
                     <h1> Manual Check In: </h1>
                     <form id = "manualForm" onSubmit = {e => e.preventDefault()} onKeyPress={enterPressed.bind(this)}>
                         UIN:<br></br>
@@ -219,7 +227,8 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             */
 
             const userItem = (
-                <div key={info.uin}>
+ 
+                <div className="grid-menu" key={info.uin}>
                     <p>{info.firstName} {info.lastName}</p>
                     <p>UIN: {info.uin}</p>
                     <p>RSVP: {info.rsvp}</p>
@@ -228,7 +237,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                 </div>
             );
             
-       
+            
             const modalItem = (
                 <div>
                     {/*<button onClick={() => setModalIsOpen(true)}>Open Modal</button>
@@ -236,7 +245,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
                     <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                     <button onClick={() => setModalIsOpen(false)}>close</button>
-                    <div>Manual Check-In Successful</div>
+                    <div>Added user: {manualID}</div>
                     </Modal>
 
                     <Modal
@@ -244,20 +253,18 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                     onRequestClose={() => setSecondModalIsOpen(false)}
                     >
                     <button onClick={() => setSecondModalIsOpen(false)}>close</button>
-                    <div>Swipe Check-In Successful</div>
+                    <div>User "{swipedID}" was successfully swiped in.</div>
                     </Modal>
                 </div>
             );
 
         return (
 
-            <div>
+            <div className="grid-menu">
                 {swipeSearch}
                 {manualSearch}
                 {modalItem}
                 {userItem}
-
-
             </div>
         )
     

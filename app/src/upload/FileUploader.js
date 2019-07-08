@@ -7,6 +7,7 @@ import { connect } from 'react-redux'; //connects components to redux store
 
 import Modal from 'react-modal';
 import UserContext from '../context/users/userContext';
+import styles from '../components/DisplayModule.css';
 
 
 
@@ -189,9 +190,9 @@ const FileUploader = () => {
     return (
       
 
-      <div>
+      <div className='grid-menu'>
         <ReactFileReader handleFiles={handleFiles} fileTypes={'.csv'}>
-          <button className='btn'>Upload</button>
+          <button >Upload</button>
         </ReactFileReader>
         {modalItem}
 

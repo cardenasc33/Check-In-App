@@ -1,13 +1,18 @@
-import React , { useState , useContext, useEffect } from 'react';
+import React , { useState , useContext, useEffect , Fragment} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'; //connects components to redux store
 import { fetchPosts } from '../actions/postActions';
 import UserContext from '../context/users/userContext';
+import styles from './DisplayModule.css';
+import UserItem from './UserItem';
+//import './DisplayModule.css';
 
 
 const Display = ({ searchUsers }) => {
     //Using react_hooks 
     const userContext = useContext(UserContext);
+
+    const { users } = userContext;
     //const [info, setInfo] = useState(userContext.users);
 
 
@@ -24,9 +29,7 @@ const Display = ({ searchUsers }) => {
             
             //fetch('/students')
                 //.then(res => res.json())
-            
-            
-            
+        
         //students.unshift(newPost); //hooks version of componentWillReceiveProps
         // eslint-disable-next-line
     },[userContext.users]); //edit  for special run conditions...empty means run once
@@ -52,10 +55,11 @@ const Display = ({ searchUsers }) => {
         ));
     */
 
+    
    const data = userContext.users;
 
    const postItems = data.map(post => (
-    <div key={post.uin}>
+    <div className= "grid-right" key={post.uin}>
         <p>{post.firstName} {post.lastName}</p>
         <p>UIN: {post.uin}</p>
         <p>RSVP: {post.rsvp}</p>
@@ -67,10 +71,21 @@ const Display = ({ searchUsers }) => {
 
 
         return (
-            <div>
+            
+            
+            <Fragment>
+                <div className="grid-right">
+
+                {users.map(user => (
+                    <UserItem key={user.uin} user={user} />
+                ))}
+
+
                 <h1>Display Component:</h1>
                 { postItems }
             </div>
+            </Fragment>
+            
         )
     
 }
