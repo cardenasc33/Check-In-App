@@ -21,7 +21,7 @@ const App = () => {
     return (
         
         <UserState>
-        <div className="nav-head-bar"></div>
+        <div className="nav-head-bar">UIC</div>
         <div className="App">
           <div className="Card">
           <FileUploader/>
