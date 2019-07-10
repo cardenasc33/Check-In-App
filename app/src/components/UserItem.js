@@ -6,7 +6,7 @@ const UserItem = ({ user }) => {
     const { uin, firstName, lastName, rsvp, checkIn} = user; //user prop
 
     return (
-        <div className='card bg-light'>
+        <div className='card bg-light' id='userItem'>
             <h3 className="text-primary.text-left">
                 {firstName}{' '}{lastName}{' '} 
             </h3>

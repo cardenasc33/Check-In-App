@@ -19,14 +19,16 @@ const App = () => {
 
   
     return (
+        
         <UserState>
-  
+        <div className="nav-head-bar"></div>
         <div className="App">
           <div className="Card">
+          <FileUploader/>
           <div className="grid-container">
          
          <Fragment>
-          <FileUploader/>
+         
   
           <SearchUser/>
           
