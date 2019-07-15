@@ -106,7 +106,9 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
     const searchUser = (uin) =>{
 
         userContext.getUser(uin); //getUser defined by userContext
+        
         setModalIsOpen(true);
+        //closeOnTime();
     }
 
     const enterPressed = (e) => {
@@ -176,6 +178,16 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
         setSwipedID(uin); //add the uin to the state hook from swiped ID
 
         setSecondModalIsOpen(true);
+        //closeOnTime();
+    }
+
+    /*
+     *  Function: closeOnTime()
+     *  Usage: closes the modal when certain amount of time is reached 
+     */
+    const closeOnTime = () => {
+        setTimeout(setModalIsOpen(false), 1000);
+        //setTimeout(function(){alert("Hello");}, 1000);
     }
 
     //replace render
@@ -187,7 +199,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             const swipeSearch = (
                 <div class = "grid-menu">
                     <h2 className='text-primary'>Swipe Check In: </h2>
-                    <input className='inputBar' id = "text" type="text" placeholder="Please Swipe ICard..." onInput={getText}></input>
+                    <input className='inputBar' id = "text" type="text" placeholder="Please Swipe ICard..." onInput={getText} autoFocus="true"></input>
                     <p id = "total"> Total Characters: 0</p>
                     <p id = "status"> Status: Please Swipe Card</p>
                     <p id = "uinID">UIN: </p>
