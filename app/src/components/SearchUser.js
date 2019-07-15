@@ -236,17 +236,17 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                     {/*<button onClick={() => setModalIsOpen(true)}>Open Modal</button>
                     <button onClick={() => setSecondModalIsOpen(true)}>Open Second Modal</button>*/}
 
-                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                    <Modal className='modals' isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                     <button onClick={() => setModalIsOpen(false)}>close</button>
-                    <div>Added user: {manualID}</div>
+                    <div className='modalMessage'>Added user: {manualID}</div>
                     </Modal>
 
-                    <Modal
+                    <Modal className='modals'
                     isOpen={secondModalIsOpen}
                     onRequestClose={() => setSecondModalIsOpen(false)}
                     >
                     <button onClick={() => setSecondModalIsOpen(false)}>close</button>
-                    <div>User "{swipedID}" was successfully swiped in.</div>
+                    <div className='modalMessage'>User "{swipedID}" was successfully swiped in.</div>
                     </Modal>
                 </div>
             );
