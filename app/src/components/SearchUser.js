@@ -184,17 +184,10 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             const data= userContext.user;
             console.log(data.uin);
            
-
-           
-            
-
-
-
-
             const swipeSearch = (
                 <div class = "grid-menu">
                     <h2 className='text-primary'>Swipe Check In: </h2>
-                    <input id = "text" type="text" placeholder="Please Swipe ICard..." onInput={getText}></input>
+                    <input className='inputBar' id = "text" type="text" placeholder="Please Swipe ICard..." onInput={getText}></input>
                     <p id = "total"> Total Characters: 0</p>
                     <p id = "status"> Status: Please Swipe Card</p>
                     <p id = "uinID">UIN: </p>
@@ -206,8 +199,8 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                 <div class="grid-menu">
                     <h2 className='text-primary'> Manual Check In: </h2>
                     <form id = "manualForm" onSubmit = {e => e.preventDefault()} onKeyPress={enterPressed.bind(this)}>
-                        UIN:<br></br>
-                        <input type="text" id="uinInput" placeholder="Enter UIN..." required minLength="9" maxLength="9" ></input>
+                    <br></br>
+                        <input className='inputBar' type="text" id="uinInput" placeholder="Enter UIN..." required minLength="9" maxLength="9" ></input>
                         <br></br>
                         <button className="btn btn-primary btn-block" id="checkinBtn"  type="button" onClick={checkId}>Manual Checkin</button>
                     </form>

@@ -11,7 +11,9 @@ import UserState from './context/users/UserState';
 import Modal from 'react-modal';
 
 import styles from './components/DisplayModule.css'; //Style sheet
+import logo from './white_logo.png';
 
+console.log(logo);
 const App = () => {
 
 
@@ -21,7 +23,10 @@ const App = () => {
     return (
         
         <UserState>
-        <div className="nav-head-bar">UIC</div>
+        <div className="nav-head-bar">
+          <img className="logo" src={logo} alt="Logo" />
+          <h2 className="login">Log In</h2>
+        </div>
         <div className="App">
           <div className="Card">
           <FileUploader/>
