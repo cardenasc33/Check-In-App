@@ -1,6 +1,4 @@
 
-
-
 const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
@@ -127,7 +125,8 @@ app.post("/countTotal", (req, res) => {
     if (error){
       return req.status(500).send(error);
     }
-  })
+    res.send(result);
+  });
 });
 
 

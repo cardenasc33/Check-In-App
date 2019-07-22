@@ -126,7 +126,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
     }
 
     const getText = () => {
-        var textInput = document.getElementById('text').value;
+        var textInput = document.getElementById('swipeBar').value;
         textInput = textInput.replace(/\s/g, ''); 
         count(textInput);
         
@@ -188,8 +188,10 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
      *  Usage: closes the modal when certain amount of time is reached 
      */
     const closeOnTime = () => {
-        setTimeout(function(){setModalIsOpen(false);}, 3000);
-        //setTimeout(function(){alert("Hello");}, 3000);
+        setTimeout(function(){setModalIsOpen(false);}, 2000);
+        setTimeout(function(){setSecondModalIsOpen(false);}, 2000);
+        document.getElementById("swipeBar").value="";
+        document.getElementById("uinInput").value="";
     }
 
     //replace render
@@ -201,7 +203,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             const swipeSearch = (
                 <div class = "grid-menu" id='swipeSearch'>
                     <h2 className='primary'>Swipe Check In: </h2>
-                    <input className='inputBar' id = "text" type="text" placeholder="Please Swipe ICard..." onInput={getText} autoFocus="true"></input>
+                    <input className='inputBar' id = "swipeBar" type="text" placeholder="Please Swipe ICard..." onInput={getText} autoFocus="true"></input>
                     <div id='swipeResult'>
                         <p id = "total"> Total Characters: 0</p>
                         <p id = "status"> Status: Please Swipe Card</p>
@@ -244,7 +246,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                     <p>Checked In: {info.checkIn}</p>
                     <br></br>
                 </div>
-            );
+            )
             
             
             const modalItem = (
@@ -257,11 +259,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                     <div className='modalMessage'>Added user: {manualID}</div>
                     </Modal>
 
-                    <Modal className='modals'
-                    isOpen={secondModalIsOpen}
-                    onAfterOpen={closeOnTime}
-                    onRequestClose={() => setSecondModalIsOpen(false)}
-                    >
+                    <Modal className='modals' isOpen={secondModalIsOpen} onAfterOpen={closeOnTime} onRequestClose={() => setSecondModalIsOpen(false)}>
                     <button onClick={() => setSecondModalIsOpen(false)}>close</button>
                     <div className='modalMessage'>User "{swipedID}" was successfully swiped in.</div>
                     </Modal>

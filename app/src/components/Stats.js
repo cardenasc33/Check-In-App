@@ -1,16 +1,16 @@
 import {useState, useContext, useEffect} from 'react';
 
-const FilterUsers = () => {
+const Stats = () => {
     const userContext = useContext();
     const [info, setInfo] = useState({});
 
     useEffect(() => {
 
-        //userContext.filterUsers();
+        //userContext.countUsers();
 
     },[]);
 
 
 }
 
-export default FilterUsers;
+export default Stats;
