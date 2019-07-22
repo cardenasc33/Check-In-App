@@ -121,6 +121,16 @@ app.post("/clearAll", (req, res) => {
     }
   })
 });
+
+app.post("/countTotal", (req, res) => {
+  studentCollection.count({}, (error, result) =>{
+    if (error){
+      return req.status(500).send(error);
+    }
+  })
+});
+
+
 /*
 app.post("/person", (request, response) => {
   collection.insert(request.body, (error, result) => {

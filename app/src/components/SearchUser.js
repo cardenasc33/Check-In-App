@@ -108,7 +108,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
         userContext.getUser(uin); //getUser defined by userContext
         
         setModalIsOpen(true);
-        //closeOnTime();
+        
     }
 
     const enterPressed = (e) => {
@@ -186,8 +186,8 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
      *  Usage: closes the modal when certain amount of time is reached 
      */
     const closeOnTime = () => {
-        setTimeout(setModalIsOpen(false), 1000);
-        //setTimeout(function(){alert("Hello");}, 1000);
+        setTimeout(function(){setModalIsOpen(false);}, 3000);
+        //setTimeout(function(){alert("Hello");}, 3000);
     }
 
     //replace render
@@ -197,21 +197,23 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             console.log(data.uin);
            
             const swipeSearch = (
-                <div class = "grid-menu">
-                    <h2 className='text-primary'>Swipe Check In: </h2>
+                <div class = "grid-menu" id='swipeSearch'>
+                    <h2 className='primary'>Swipe Check In: </h2>
                     <input className='inputBar' id = "text" type="text" placeholder="Please Swipe ICard..." onInput={getText} autoFocus="true"></input>
-                    <p id = "total"> Total Characters: 0</p>
-                    <p id = "status"> Status: Please Swipe Card</p>
-                    <p id = "uinID">UIN: </p>
-                    <p id="prefix">Prefix: </p>
+                    <div id='swipeResult'>
+                        <p id = "total"> Total Characters: 0</p>
+                        <p id = "status"> Status: Please Swipe Card</p>
+                        <p id = "uinID">UIN: </p>
+                        <p id="prefix">Prefix: </p>
+                    </div>
                 </div>
             )
 
             const manualSearch = (
                 <div class="grid-menu">
-                    <h2 className='text-primary'> Manual Check In: </h2>
+                    <h2 className='primary'> Manual Check In: </h2>
                     <form id = "manualForm" onSubmit = {e => e.preventDefault()} onKeyPress={enterPressed.bind(this)}>
-                    <br></br>
+
                         <input className='inputBar' type="text" id="uinInput" placeholder="Enter UIN..." required minLength="9" maxLength="9" ></input>
                         <br></br>
                         <button className="btn btn-primary btn-block" id="checkinBtn"  type="button" onClick={checkId}>Manual Checkin</button>
@@ -233,7 +235,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
             const userItem = (
  
-                <div className="grid-menu" key={info.uin}>
+                <div id='checkinResult' className="grid-menu" key={info.uin}>
                     <p>{info.firstName} {info.lastName}</p>
                     <p>UIN: {info.uin}</p>
                     <p>RSVP: {info.rsvp}</p>
@@ -248,7 +250,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                     {/*<button onClick={() => setModalIsOpen(true)}>Open Modal</button>
                     <button onClick={() => setSecondModalIsOpen(true)}>Open Second Modal</button>*/}
 
-                    <Modal className='modals' isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                    <Modal className='modals' isOpen={modalIsOpen} onAfterOpen={closeOnTime} onRequestClose={() => setModalIsOpen(false)}>
                     <button onClick={() => setModalIsOpen(false)}>close</button>
                     <div className='modalMessage'>Added user: {manualID}</div>
                     </Modal>

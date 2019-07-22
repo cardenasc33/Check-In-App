@@ -9,6 +9,8 @@
 .logo{
   height: 80px;
   width: 200px;
+  margin-top: auto;
+  margin-bottom: auto;
   position: relative;
 }
 
@@ -40,11 +42,27 @@
 
 #userItem{
   margin-bottom: 25px;
+  font-family: 'Theinhardt','Arial',sans-serif;
+}
+
+#userItem p{
+  text-align: center;
 }
 
 .nav-head-bar{
   background-color: #007fa5;
   margin-bottom: 20px;
+}
+
+.primary{
+  font-family: 'Theinhardt','Arial',sans-serif;
+  color: #363636;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 .inputBar{
@@ -67,6 +85,7 @@
   height: 40px;
   margin-left: auto;
   margin-right: auto;
+  background-color:#1657b9;
 }
 
 .modals{
@@ -92,3 +111,20 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+#checkinResult{
+  display: none;
+}
+
+#swipeSearch{
+  padding-bottom: 10%;
+}
+#swipeResult{
+  display: none;
+  text-align: center;
+}
+
+#displayComponent{
+  display: none;
+}
+

@@ -7,14 +7,23 @@ const UserItem = ({ user }) => {
 
     return (
         <div className='card bg-light' id='userItem'>
-            <h3 className="text-primary.text-left">
+            <h3 className="text-primary.text-center">
                 {firstName}{' '}{lastName}{' '} 
             </h3>
+            {/*
             <ul className='list' style={{listStyleType: "none"}}>
                     {uin && (<li>UIN: {uin}</li>)}
                     {rsvp && (<li>RSVP: {rsvp}</li>)}
                     {checkIn && (<li>Checked In: {checkIn}</li>)}
             </ul>
+            */}
+            
+
+            <div>
+                <p>UIN: {uin}</p>
+                <p>RSVP: {rsvp}</p>
+                <p>Checked In: {checkIn}</p>
+            </div>
         </div>
     );
 };

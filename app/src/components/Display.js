@@ -25,7 +25,7 @@ const Display = ({ searchUsers }) => {
            
 
             userContext.searchUsers();
-
+            
             
             //fetch('/students')
                 //.then(res => res.json())
@@ -42,7 +42,7 @@ const Display = ({ searchUsers }) => {
         }
     }
     */
-
+   
     /*
     const postItems = students.map(post => (
             <div key={post.uin}>
@@ -59,7 +59,7 @@ const Display = ({ searchUsers }) => {
    const data = userContext.users;
 
    const postItems = data.map(post => (
-    <div className= "grid-right" key={post.uin}>
+    <div id='displayComponent' className= "grid-right" key={post.uin}>
         <p>{post.firstName} {post.lastName}</p>
         <p>UIN: {post.uin}</p>
         <p>RSVP: {post.rsvp}</p>
@@ -80,8 +80,6 @@ const Display = ({ searchUsers }) => {
                     <UserItem key={user.uin} user={user} />
                 ))}
 
-
-                <h1>Display Component:</h1>
                 { postItems }
             </div>
             </Fragment>

@@ -165,6 +165,11 @@ const FileUploader = () => {
     //userContext.getUser(null); //forces re-render of dispay component after upload
   } //end of handleFiles
 
+  const closeOnTime = () => {
+    setTimeout(function(){setModalIsOpen(false);}, 2000);
+    //setTimeout(function(){alert("Hello");}, 3000);
+  }
+
  
 
   const modalItem = (
@@ -172,17 +177,18 @@ const FileUploader = () => {
                     {/*<button onClick={() => setModalIsOpen(true)}>Open Modal</button>
                     <button onClick={() => setSecondModalIsOpen(true)}>Open Second Modal</button>*/}
 
-                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                    <Modal className='modals' isOpen={modalIsOpen} onAfterOpen={closeOnTime} onRequestClose={() => setModalIsOpen(false)}>
                     <button onClick={() => setModalIsOpen(false)}>close</button>
-                    <div>Upload Successful</div>
+                    <div className='modalMessage'>Upload Successful</div>
                     </Modal>
 
                     <Modal
                     isOpen={secondModalIsOpen}
+                    onAfterOpen={closeOnTime}
                     onRequestClose={() => setSecondModalIsOpen(false)}
                     >
                     <button onClick={() => setSecondModalIsOpen(false)}>close</button>
-                    <div>Swipe Check-In Successful</div>
+                    <div className='modalMessage'>Swipe Check-In Successful</div>
                     </Modal>
                 </div>
   );
