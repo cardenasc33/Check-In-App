@@ -106,7 +106,6 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
     const searchUser = (uin) =>{
 
         userContext.getUser(uin); //getUser defined by userContext
-        
         setModalIsOpen(true);
         
     }
@@ -178,7 +177,10 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
         setSwipedID(uin); //add the uin to the state hook from swiped ID
 
         setSecondModalIsOpen(true);
-        //closeOnTime();
+        
+        //Clears input bar for new swipe in
+        //document.getElementById("inputBar").value="";
+
     }
 
     /*
@@ -257,6 +259,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
                     <Modal className='modals'
                     isOpen={secondModalIsOpen}
+                    onAfterOpen={closeOnTime}
                     onRequestClose={() => setSecondModalIsOpen(false)}
                     >
                     <button onClick={() => setSecondModalIsOpen(false)}>close</button>
