@@ -5,7 +5,7 @@ import FileUploader from './upload/FileUploader'
 
 import Display from './components/Display';
 import SearchUser from './components/SearchUser';
-
+import Stats from './components/Stats';
 
 import UserState from './context/users/UserState';
 import Modal from 'react-modal';
@@ -27,21 +27,23 @@ const App = () => {
           <img className="logo" src={logo} alt="Logo" />
           <h2 className="login">Log In</h2>
         </div>
+
+
         <div className="App">
-          <div className="Card">
           <FileUploader/>
           <div className="grid-container">
-         
-         <Fragment>
-         
+          <SearchUser/> 
+          <Stats/>
+            <div className="Card">
   
-          <SearchUser/>
-          
-          <Display/>
-          </Fragment>
+              <Fragment>
+                
+               
+                <Display/>
+              </Fragment>
 
-          
-          </div>
+                
+            </div>
           </div>
         </div>   
         </UserState>

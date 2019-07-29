@@ -83,8 +83,6 @@ const UserState = props => {
     //Set Loading
     const setLoading = () => dispatch({ type: SET_LOADING });
 
-
-
     
 
     //Provider takes a prop which makes available to the entire app

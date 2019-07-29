@@ -27,6 +27,7 @@
   grid-template-areas:
     'menu right'
     'menu right'
+    'menu right'
     ;
   grid-gap: 10px;
   /*background-color: #2196F3;*/
