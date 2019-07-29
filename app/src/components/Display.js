@@ -17,10 +17,6 @@ const Display = ({ searchUsers }) => {
 
 
     //hooks version of componentDidMount
-
-   
-        
-    
     useEffect(() => {
            
 

@@ -120,14 +120,21 @@ app.post("/clearAll", (req, res) => {
   })
 });
 
-app.post("/countTotal", (req, res) => {
-  studentCollection.count({}, (error, result) =>{
-    if (error){
-      return req.status(500).send(error);
-    }
-    res.send(result);
+app.get("/countTotal", (req, res) => {
+  studentCollection.countDocuments({}, function(error, count) {
+        if (error){
+          return res.status(500).send(error);
+          console.log("not reached");
+        }
+        res.send({ total: count});
+
+
   });
+  
 });
+
+
+
 
 
 /*
