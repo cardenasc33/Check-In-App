@@ -8,7 +8,8 @@ import {
     CLEAR_USERS,
     USER_FOUND,
     USER_NOT_FOUND,
-    NEW_USER
+    NEW_USER,
+    COUNT_USERS,
 } from '../types';
 
 export default (state, action) => {
@@ -44,6 +45,11 @@ export default (state, action) => {
                 //state is immutable, need to copy with new payload
                 ...state,
                 loading: true
+            }
+        case COUNT_USERS:
+            return {
+                ...state,
+                count_users: action.payload
             }
         default:
             return state;

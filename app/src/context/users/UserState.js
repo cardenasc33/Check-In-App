@@ -7,7 +7,8 @@ import {
     SET_LOADING,
     USER_FOUND,
     USER_NOT_FOUND,
-    NEW_USER
+    NEW_USER,
+    COUNT_USERS
 } from '../types';
 
 const UserState = props => {
@@ -15,7 +16,8 @@ const UserState = props => {
         users: [],
         user: {},
         not_found: {},
-        loading: false
+        loading: false,
+        user_count: {}
     }
 
     //dispatch type back to reducer (using reducer hook)
@@ -78,6 +80,17 @@ const UserState = props => {
         
     };
 
+    //Count Users
+    const countUsers = async () => {
+        const res = await fetch('/countUsers')
+        .then(res => res.json())
+            .then(user_count => dispatch({
+                type: COUNT_USERS,
+                payload: user_count
+            }));
+
+    }
+
     //Clear Users
 
     //Set Loading
@@ -95,9 +108,11 @@ const UserState = props => {
             user: state.user,
             loading: state.loading,
             not_found: state.not_found,
+            user_count: state.user_count,
             searchUsers,
             getUser,
-            createUser
+            createUser,
+            countUsers
         }}
     >
         {props.children}

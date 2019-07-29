@@ -5,6 +5,7 @@ import FileUploader from './upload/FileUploader'
 
 import Display from './components/Display';
 import SearchUser from './components/SearchUser';
+import Stats from './components/Stats';
 
 
 import UserState from './context/users/UserState';
@@ -13,13 +14,8 @@ import Modal from 'react-modal';
 import styles from './components/DisplayModule.css'; //Style sheet
 import logo from './white_logo.png';
 
-console.log(logo);
 const App = () => {
 
-
-
-
-  
     return (
         
         <UserState>
@@ -33,8 +29,7 @@ const App = () => {
           <div className="grid-container">
          
          <Fragment>
-         
-  
+      
           <SearchUser/>
           
           <Display/>
