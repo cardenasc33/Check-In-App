@@ -6,10 +6,8 @@ import FileUploader from './upload/FileUploader'
 import Display from './components/Display';
 import SearchUser from './components/SearchUser';
 import Stats from './components/Stats';
-<<<<<<< HEAD
-
-=======
->>>>>>> 14e2857ac65a18ec6171cd5aab368109d26a6a2c
+import FilterUsers from './components/FilterUsers';
+import Users from './components/Users';
 
 import UserState from './context/users/UserState';
 import Modal from 'react-modal';
@@ -34,11 +32,13 @@ const App = () => {
           <SearchUser/> 
           <Stats/>
             <div className="Card">
-  
+              
               <Fragment>
                 
-               
-                <Display/>
+                <FilterUsers/>
+                <br></br>
+                <Users/>
+                
               </Fragment>
 
                 

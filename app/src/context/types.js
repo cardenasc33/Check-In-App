@@ -9,3 +9,5 @@ export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const USER_NOT_FOUND = 'USER_NOT_FOUND';
 export const COUNT_USERS = 'COUNT_USERS';
+export const FILTER_USERS = 'FILTER_USERS';
+export const CLEAR_FILTER = 'CLEAR_USERS';

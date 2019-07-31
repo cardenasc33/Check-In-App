@@ -12,24 +12,40 @@ const Display = ({ searchUsers }) => {
     //Using react_hooks 
     const userContext = useContext(UserContext);
 
+
     const { users } = userContext;
-    //const [info, setInfo] = useState(userContext.users);
 
+    
+    
+    const [filteredResult, setFilteredResult] = useState(userContext.users);
+    
+    
+    async function filterOnSearch(input) {
+    
 
+        setFilteredResult(input);
+    }
+    
+
+    
     //hooks version of componentDidMount
     useEffect(() => {
            
 
-            userContext.searchUsers();
-            
-            
+            const usersFound = userContext.searchUsers();
+            filterOnSearch();
             //fetch('/students')
                 //.then(res => res.json())
         
         //students.unshift(newPost); //hooks version of componentWillReceiveProps
         // eslint-disable-next-line
+
     },[userContext.users]); //edit  for special run conditions...empty means run once
+
     
+
+
+
     //[userContext.user, userContext.not_found]
     /*
     const componentWillReceiveProps = (nextProps) => {
@@ -71,13 +87,18 @@ const Display = ({ searchUsers }) => {
             
             <Fragment>
                 <div className="grid-right">
+                    <div>
+                       {/*<input id="filterBar" placeholder="Filter by name or uin"></input>*/} 
+                    </div>
 
-                {users.map(user => (
-                    <UserItem key={user.uin} user={user} />
-                ))}
+                    <br></br>
 
-                { postItems }
-            </div>
+                    {users.map(user => (
+                        <UserItem key={user.uin} user={user} />
+                    ))}
+
+                    { postItems }
+                </div>
             </Fragment>
             
         )

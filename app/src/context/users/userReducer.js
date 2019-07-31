@@ -10,6 +10,8 @@ import {
     USER_NOT_FOUND,
     NEW_USER,
     COUNT_USERS,
+    FILTER_USERS,
+    CLEAR_FILTER
 } from '../types';
 
 export default (state, action) => {
@@ -51,7 +53,22 @@ export default (state, action) => {
                 ...state,
                 count_users: action.payload
             }
+        case FILTER_USERS:
+            return {
+                ...state,
+                filtered: state.users.filter(user => {
+                    const regex = new RegExp(`${action.payload}`, 'gi');
+                    return user.uin.match(regex);
+                    //return user.firstName.match(regex) || user.uin.match(regex);
+                })
+            }
+        case CLEAR_FILTER:
+            return {
+                ...state,
+                filtered: null
+            }
         default:
             return state;
     }
 }
+

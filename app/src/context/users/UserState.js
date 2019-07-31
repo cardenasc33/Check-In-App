@@ -8,7 +8,9 @@ import {
     USER_FOUND,
     USER_NOT_FOUND,
     NEW_USER,
-    COUNT_USERS
+    COUNT_USERS,
+    FILTER_USERS,
+    CLEAR_FILTER
 } from '../types';
 
 const UserState = props => {
@@ -17,7 +19,8 @@ const UserState = props => {
         user: {},
         not_found: {},
         loading: false,
-        user_count: {}
+        user_count: {},
+        filtered: null
     }
 
     //dispatch type back to reducer (using reducer hook)
@@ -96,7 +99,14 @@ const UserState = props => {
     //Set Loading
     const setLoading = () => dispatch({ type: SET_LOADING });
 
-    
+    // Filter Users
+    const filterUsers = text => {
+        dispatch({ type: FILTER_USERS, payload: text});
+    }
+
+    const clearFilter = text => {
+        dispatch({ type: CLEAR_FILTER});
+    }
 
     //Provider takes a prop which makes available to the entire app
     //Equivalent to mapStateToProps
@@ -104,13 +114,16 @@ const UserState = props => {
         value={{
             users: state.users,
             user: state.user,
+            filtered: state.filtered,
             loading: state.loading,
             not_found: state.not_found,
             user_count: state.user_count,
             searchUsers,
             getUser,
             createUser,
-            countUsers
+            countUsers,
+            filterUsers,
+            clearFilter
         }}
     >
         {props.children}
