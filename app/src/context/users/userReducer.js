@@ -58,7 +58,7 @@ export default (state, action) => {
                 ...state,
                 filtered: state.users.filter(user => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
-                    return user.uin.match(regex);
+                    return user.firstName.match(regex) || user.lastName.match(regex) || user.uin.match(regex);
                     //return user.firstName.match(regex) || user.uin.match(regex);
                 })
             }

@@ -22,15 +22,14 @@
   padding: 20px;
 }
 
+.grid-container1 {
+  display: flex;
+  grid-template-columns: auto auto auto;
+}
+
 .grid-container {
   display: grid;
-  grid-template-areas:
-    'menu right'
-    'menu right'
-    'menu right'
-    ;
-  grid-gap: 10px;
-  /*background-color: #2196F3;*/
+  grid-template-columns: auto auto auto ;
   padding: 10px;
 }
 
@@ -41,14 +40,20 @@
   font-size: 20px;
 }
 
-#userItem{
+.userItem{
   margin-bottom: 25px;
   font-family: 'Theinhardt','Arial',sans-serif;
-}
-
-#userItem p{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
   text-align: center;
 }
+
+.userItem p{
+  text-align: center;
+}
+
 
 .nav-head-bar{
   background-color: #007fa5;

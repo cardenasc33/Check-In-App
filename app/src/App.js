@@ -27,23 +27,25 @@ const App = () => {
 
 
         <div className="App">
-          <FileUploader/>
-          <div className="grid-container">
-          <SearchUser/> 
-          <Stats/>
-            <div className="Card">
-              
-              <Fragment>
-                
-                <FilterUsers/>
-                <br></br>
-                <Users/>
-                
-              </Fragment>
+             
+              <FileUploader/>
 
+              <div className = "grid-container1">
+                <SearchUser/> 
+                <FilterUsers/>
+              </div>
+              <br></br>
+              <Stats/>
+              <div className="grid-container">
                 
-            </div>
-          </div>
+                <div className="Card">
+                   
+                      <Users/>
+                    
+                </div>
+              
+              </div>
+
         </div>   
         </UserState>
     )

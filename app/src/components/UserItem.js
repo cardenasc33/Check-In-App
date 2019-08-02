@@ -6,7 +6,11 @@ const UserItem = ({ user }) => {
     const { uin, firstName, lastName, rsvp, checkIn} = user; //user prop
 
     return (
-        <div className='card bg-light' id='userItem'>
+        
+     
+        
+        <div className='userItem'>
+        <div className = 'card bg-light'>
             <h3 className="text-primary.text-center">
                 {firstName}{' '}{lastName}{' '} 
             </h3>
@@ -17,7 +21,7 @@ const UserItem = ({ user }) => {
                     {checkIn && (<li>Checked In: {checkIn}</li>)}
             </ul>
             */}
-            
+
 
             <div>
                 <p>UIN: {uin}</p>
@@ -25,6 +29,8 @@ const UserItem = ({ user }) => {
                 <p>Checked In: {checkIn}</p>
             </div>
         </div>
+        </div>
+    
     );
 };
 

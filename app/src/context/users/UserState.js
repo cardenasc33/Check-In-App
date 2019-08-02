@@ -61,7 +61,7 @@ const UserState = props => {
             }))
             .catch(user_not_found => dispatch({
                 type: USER_NOT_FOUND,
-                payload: {uin: uin, rsvp: "No", checkIn: "Yes"}
+                payload: {firstName: "", lastName: "", uin: uin, rsvp: "No", checkIn: "Yes"}
             }));
     }
 

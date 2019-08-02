@@ -16,7 +16,6 @@ const FilterUsers = () => {
     const onChange = e => {
         if(text.current.value !== '') {
             filterUsers(e.target.value);
-            console.log(e.target.value);
         } else {
             clearFilter();
         }
