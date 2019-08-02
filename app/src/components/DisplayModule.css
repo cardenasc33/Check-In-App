@@ -27,9 +27,24 @@
   grid-template-columns: auto auto auto;
 }
 
+.checkIn-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.swipe-container {
+  float: left;
+}
+
+.manual-container {
+  float: right;
+}
+
+
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto auto;
   padding: 10px;
 }
 
@@ -41,11 +56,9 @@
 }
 
 .userItem{
-  margin-bottom: 25px;
   font-family: 'Theinhardt','Arial',sans-serif;
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  margin-right: 10px;
   font-size: 30px;
   text-align: center;
 }

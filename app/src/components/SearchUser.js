@@ -201,7 +201,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             console.log(data.uin);
            
             const swipeSearch = (
-                <div class = "grid-menu" id='swipeSearch'>
+                <div class = "swipe-container" id='swipeSearch'>
                     <h2 className='primary'>Swipe Check In: </h2>
                     <input className='inputBar' id = "swipeBar" type="text" placeholder="Please Swipe ICard..." onInput={getText} autoFocus="true"></input>
                     <div id='swipeResult'>
@@ -214,7 +214,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
             )
 
             const manualSearch = (
-                <div class="grid-menu">
+                <div class="manual-container">
                     <h2 className='primary'> Manual Check In: </h2>
                     <form id = "manualForm" onSubmit = {e => e.preventDefault()} onKeyPress={enterPressed.bind(this)}>
 
@@ -268,7 +268,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
 
         return (
 
-            <div className="grid-menu">
+            <div className="checkIn-container">
                 {swipeSearch}
                 {manualSearch}
                 {modalItem}

@@ -32,17 +32,15 @@ const App = () => {
 
               <div className = "grid-container1">
                 <SearchUser/> 
-                <FilterUsers/>
+                
               </div>
               <br></br>
               <Stats/>
+              <FilterUsers/>
               <div className="grid-container">
                 
-                <div className="Card">
                    
                       <Users/>
-                    
-                </div>
               
               </div>
 
