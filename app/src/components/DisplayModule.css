@@ -6,6 +6,8 @@
 .grid-right{ grid-area: right; }
 .gird-foot { grid-area: footer; }
 
+
+
 .logo{
   height: 80px;
   width: 200px;
@@ -22,23 +24,21 @@
   padding: 20px;
 }
 
-.grid-container1 {
-  display: flex;
-  grid-template-columns: auto auto auto;
-}
-
 .checkIn-container{
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   justify-content: space-between;
   width: 100%;
 }
 
 .swipe-container {
-  float: left;
+  position: relative;
+  text-align: center;
 }
 
 .manual-container {
-  float: right;
+  position: relative;
+  text-align: center;
 }
 
 
@@ -59,12 +59,12 @@
   font-family: 'Theinhardt','Arial',sans-serif;
   background-color: rgba(255, 255, 255, 0.8);
   margin-right: 10px;
-  font-size: 30px;
   text-align: center;
 }
 
 .userItem p{
   text-align: center;
+
 }
 
 
