@@ -21,7 +21,7 @@ const FilterUsers = () => {
         }
     }
     return (
-        <form>
+        <form id="filter-form">
             <input ref={text} type="text" placeholder="Filter Users..." onChange={onChange}/>
         </form>
     )

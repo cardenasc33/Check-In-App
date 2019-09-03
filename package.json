@@ -20,6 +20,7 @@
     "npm": "^6.9.0",
     "react-csv-reader": "^1.2.2",
     "react-is": "^16.8.6",
-    "react-modal": "^3.8.1"
+    "react-modal": "^3.8.1",
+    "react-responsive": "^7.0.0"
   }
 }

@@ -7,7 +7,6 @@
 .gird-foot { grid-area: footer; }
 
 
-
 .logo{
   height: 80px;
   width: 200px;
@@ -15,6 +14,7 @@
   margin-bottom: auto;
   position: relative;
 }
+
 
 .login{
   float: right;
@@ -39,6 +39,7 @@
 .manual-container {
   position: relative;
   text-align: center;
+
 }
 
 
@@ -56,7 +57,8 @@
 }
 
 .userItem{
-  font-family: 'Theinhardt','Arial',sans-serif;
+  /*font-family: 'Theinhardt','Arial',sans-serif;*/
+  font-family: "Proxima Nova","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
   background-color: rgba(255, 255, 255, 0.8);
   margin-right: 10px;
   text-align: center;
@@ -64,17 +66,170 @@
 
 .userItem p{
   text-align: center;
+}
 
+
+/*
+    <div>Device Test!</div>
+          <MediaQuery query="(min-device-width: 1224px)">
+          <div>You are a desktop or laptop</div>
+          <MediaQuery query="(min-device-width: 1824px)">
+            <div>You also have a huge screen</div>
+          </MediaQuery>
+          <MediaQuery query="(max-width: 1224px)">
+            <div>You are sized like a tablet or mobile phone though</div>
+          </MediaQuery>
+        </MediaQuery>
+        <MediaQuery query="(max-device-width: 1224px)">
+          <div>You are a tablet or mobile phone</div>
+        </MediaQuery>
+        <MediaQuery query="(orientation: portrait)">
+          <div>You are portrait</div>
+        </MediaQuery>
+        <MediaQuery query="(orientation: landscape)">
+          <div>You are landscape</div>
+        </MediaQuery>
+        */
+#root{
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+/* Desktop or laptop */
+@media only screen and (min-width: 1224px){
+  #root{
+    /*background-color: white;*/
+  }
+}
+/* Wide display desktop or laptop */
+@media only screen and (min-device-width: 1824px){
+  #root{
+    /*background-color: red;*/
+  }
+}
+
+/*571x666*/
+/*Changes the layout when viewport goes under width 571px*/
+
+/*
+@media (min-width: 500px){
+  #root{
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+  }
+}
+*/
+
+/*Desktop with resize as mobile device*/
+@media only screen and (max-width: 1224px){
+  #root{
+    /*background-color: blue;*/
+  }
+}
+
+/* Desktop sized windows reduced */
+@media only screen and (max-width: 570px){
+  #root{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+    height: 100%;
+    width: 100%;
+    /*background-color: yellow;*/
+  }
+  .checkIn-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #filter-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #totalUserInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo{
+    margin-left: -40px;
+  }
+}
+
+/*Tablet or mobile device*/
+@media only screen and (max-device-width: 1224px){
+  #root{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+    height: 100%;
+    width: 100%;
+    /*background-color: yellow;*/
+  }
+  .checkIn-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #filter-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #totalUserInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo{
+    margin-left: -40px;
+  }
+  
+}
+
+/* Portrait display */
+@media only screen and (orientation: portrait){
+  #root{
+    /*background-color: gray;*/
+  }
+}
+
+/* Landscape display */
+@media only screen and (orientation: landscape){
+  #root{
+    /*background-color: purple;*/
+  }
 }
 
 
 .nav-head-bar{
   background-color: #007fa5;
   margin-bottom: 20px;
+  width: 100vw;
 }
 
 .primary{
-  font-family: 'Theinhardt','Arial',sans-serif;
+  /*font-family: 'Theinhardt','Arial',sans-serif;*/
+  font-family: "Proxima Nova","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
   color: #363636;
   font-weight: bold;
   width: 100%;

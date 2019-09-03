@@ -91,6 +91,7 @@ const SearchUser = ({ showClear, clearUsers, setAlert }) => {
                 console.log("New user added to database");
                 console.log(userContext.not_found);
                 userContext.createUser(userContext.not_found);
+                userContext.searchUsers(); //Re-render component
             }
             
          

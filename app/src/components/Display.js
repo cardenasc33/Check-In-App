@@ -12,17 +12,11 @@ const Display = ({ searchUsers }) => {
     //Using react_hooks 
     const userContext = useContext(UserContext);
 
-
     const { users } = userContext;
 
-    
-    
     const [filteredResult, setFilteredResult] = useState(userContext.users);
     
-    
     async function filterOnSearch(input) {
-    
-
         setFilteredResult(input);
     }
     

@@ -38,6 +38,7 @@ const FileUploader = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
   
+  const [uploadClicked, setUploadClicked] = useState(false);
   /*
   componentWillMount() {
     this.props.fetchPosts();
@@ -49,6 +50,11 @@ const FileUploader = () => {
       }
   }
   */
+
+ useEffect(() => {
+  userContext.searchUsers();
+
+},[uploadClicked]);
   
 
   
@@ -163,6 +169,8 @@ const FileUploader = () => {
     setModalIsOpen(true); //pop-up
     userContext.searchUsers();
     //userContext.getUser(null); //forces re-render of dispay component after upload
+
+    setUploadClicked(true);
   } //end of handleFiles
 
   const closeOnTime = () => {
