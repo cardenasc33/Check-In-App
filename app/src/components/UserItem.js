@@ -10,8 +10,8 @@ const UserItem = ({ user }) => {
      
         
         <div className='userItem'>
-        <div className = 'card bg-light'>
-            <h3 className="text-primary.text-center">
+        <div className = 'card'>
+            <h3 className="name-header">
                 {firstName}{' '}{lastName}{' '} 
             </h3>
             {/*
@@ -23,7 +23,7 @@ const UserItem = ({ user }) => {
             */}
 
 
-            <div>
+            <div class="user-sub-info">
                 <p>UIN: {uin}</p>
                 <p>RSVP: {rsvp}</p>
                 <p>Checked In: {checkIn}</p>

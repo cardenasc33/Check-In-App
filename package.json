@@ -18,7 +18,7 @@
     "mongodb": "^3.2.5",
     "nodemon": "^1.19.1",
     "npm": "^6.9.0",
-    "react-csv-reader": "^1.2.2",
+    "react-csv-reader": "^1w.2.2",
     "react-is": "^16.8.6",
     "react-modal": "^3.8.1",
     "react-responsive": "^7.0.0"

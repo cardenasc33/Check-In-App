@@ -206,7 +206,7 @@ const FileUploader = () => {
 
       <div className='grid-menu'>
         <ReactFileReader handleFiles={handleFiles} fileTypes={'.csv'}>
-          <button >Upload</button>
+          <button id='uploadButton'>Upload</button>
         </ReactFileReader>
         {modalItem}
 
