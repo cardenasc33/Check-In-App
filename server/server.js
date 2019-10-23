@@ -12,6 +12,7 @@ const fileUpload = require("express-fileupload");
 const port = 3001
 
 var app = Express();
+
 /*
 var corsOptions = {
     origin: '*',
@@ -37,7 +38,6 @@ app.listen(port, () => {
 app.use(BodyParser.json({type:"*/*"}));
 //app.use(cors(corsOptions))
 
-
 //Register a route using HTTP
 
 //Inserts uploaded file data to the 'students' database
@@ -54,7 +54,7 @@ app.post("/insert", (req, res) => {
     console.log(req.body);
     //res.send(req.body);
     res.sendStatus(200);
-         
+
 });
 
 //Retrieves student from 'students' database with UIN parameter
@@ -81,9 +81,7 @@ app.get("/updateCheckin/:uin", (req, res) => {
       if (err){
         return res.status(500).send(err) //returns error if user not found
       }
-
         res.send(studentInfo.value)
-    
     });
 });
 

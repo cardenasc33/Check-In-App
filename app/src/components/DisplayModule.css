@@ -4,7 +4,7 @@
 .grid-menu { grid-area: menu; }
 .grid-main { grid-area: main; }
 .grid-right{ grid-area: right; }
-.gird-foot { grid-area: footer; }
+.grid-foot { grid-area: footer; }
 
 
 .logo{
@@ -344,8 +344,9 @@
 /* Landscape display */
 @media only screen and (orientation: landscape){
   #root{
-    /*background-color: purple;*/
+    /* background-color: purple;*/
   }
+
  
 }
 
@@ -394,20 +395,15 @@
 }
 
 .modals{
-      width: 400px;
+       width: 400px;
        height: 400px;
-       margin:0 auto;
-       display:table;
-       position: absolute;
-       left: 0;
-       right:0;
-       top: 50%; 
+       /*position: absolute;*/
        border:1px solid;
-       -webkit-transform:translateY(-50%);
-       -moz-transform:translateY(-50%);
-       -ms-transform:translateY(-50%);
-       -o-transform:translateY(-50%);
-       transform:translateY(-50%);
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%, -50%);
+       background-color: white;
 }
 
 .modals .modalMessage{
@@ -423,6 +419,7 @@
 
 #swipeSearch{
   padding-bottom: 10%;
+  
 }
 #swipeResult{
   display: none;
@@ -434,6 +431,8 @@
 }
 
 #filterBar{
-  width: 100%
+  width: 100%;
+
+
 }
 
