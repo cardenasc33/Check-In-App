@@ -14,5 +14,5 @@ The code displays how to do the following:
 * Parsing input from user
 * Create custom JSON responses
 * Provide create, Read, Update, Delete operations using Express.js
-* Implementing Cors Middleware
+* Implementing CORS Middleware
 
